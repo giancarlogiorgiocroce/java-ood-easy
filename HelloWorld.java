@@ -26,18 +26,19 @@ class HelloWorld {
             // Attribuzione libri ad user
         user.borrow(firstBook);
 
-        Book secondBook = new Book("The Gulag Archipelago", "Aleksandr Solzhenitsyn", 450);
+            //Aggiungiamo le classi figlie.
+        AudioBook secondBook = new AudioBook("The Gulag Archipelago", "Aleksandr Solzhenitsyn", 2250);
         user.borrow(secondBook);
 
-        Book thirdBook = new Book("La Società aperta e i suoi nemici", "Carl Popper", 600);
+        Ebook thirdBook = new Ebook("La Società aperta e i suoi nemici", "Carl Popper", 600, "pdf");
         user.borrow(thirdBook);
 
-            //Aggiungiamo le classi figlie.
 
             // Stampa
         System.out.printf("Il tuo nome: %s \nLa tua data di nascina: %s \nI tuoi anni: %d \n", user.getName(), user.getBirthday(), user.age());
         // toString() funziona sulle classi base, se si usa una custom class bisogna farselo da sé
         System.out.printf("Libri presi in prestito: %s", user.borrowedBooks());
+
     
     }
 }
