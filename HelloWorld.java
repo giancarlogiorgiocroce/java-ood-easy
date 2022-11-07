@@ -1,4 +1,4 @@
-import java.time.LocalDate;
+// import java.time.LocalDate; 
 
 class HelloWorld {
     public static void main(String[] args) {
@@ -19,21 +19,25 @@ class HelloWorld {
         // ESEMPIO A SINGOLO UTENTE
 
             // Istanziazione Utente
-        User user = new User();
-        user.name = "Braccobaldo Bau";
-        user.birthday = LocalDate.parse("1995-04-18");
+        User user = new User("Braccobaldo Bau", "1995-04-18");
 
             // Istanziazione Libro
-        Book firstBook = new Book();
-        firstBook.title = "Diritto e Società di massa, un profilo";
-        firstBook.author = "Michael Thaler";
+        Book firstBook = new Book("Diritto e Società di massa, un profilo", "Michael Thaler", 300);
             // Attribuzione libri ad user
         user.borrow(firstBook);
 
+        Book secondBook = new Book("The Gulag Archipelago", "Aleksandr Solzhenitsyn", 450);
+        user.borrow(secondBook);
+
+        Book thirdBook = new Book("La Società aperta e i suoi nemici", "Carl Popper", 600);
+        user.borrow(thirdBook);
+
+            //Aggiungiamo le classi figlie.
+
             // Stampa
-        System.out.printf("Il tuo nome: %s \nLa tua data di nascina: %s \nI tuoi anni: %d \n", user.name, user.birthday, user.age());
+        System.out.printf("Il tuo nome: %s \nLa tua data di nascina: %s \nI tuoi anni: %d \n", user.getName(), user.getBirthday(), user.age());
         // toString() funziona sulle classi base, se si usa una custom class bisogna farselo da sé
-        System.out.printf("Libri presi in prestito: %s", user.books.toString());
+        System.out.printf("Libri presi in prestito: %s", user.borrowedBooks());
     
     }
 }
